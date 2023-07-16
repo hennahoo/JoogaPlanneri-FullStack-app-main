@@ -1,0 +1,183 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //url    = "postgresql://jouni:Kesa2023%3F@localhost:5432/postgres?schema=sample"
+  //         TÄMÄ TÄYTYY TIETYSTI SITTEN POISTAA, kun tehdään lopullista..
+  //         .env  tiedosto on projektikansiossa, tuo tietokannan login tieto tulee sieltä,
+  //               se laitetaan aina .gitignoreen, ettei sitäkään kopioida gittiin.. sitten kun tehd. lopullista.
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Schema:n avulla voidaan luoda tietokantaan taulurakenne;
+//  komentamalla projektin kansiossa terminalissa;
+//     npx prisma migrate dev
+// 
+//  se ajaa sheman mukaisen migraation tietokantaan, varovainen pitää olla,
+//     kun se saattaa tuhota dataa tietokannasta.
+//  mutta alkuvaiheessa, kun luodaan kantaan taulut,
+//     on kätevä, kun saa ajettua sheman -> tietokantaan, 
+//        noin yhdellä komennolla.
+///////////////////////////////////////////////////////////////////////////
+model User {
+  email    String @id
+  password String
+}
+//////////////////////////////////////////////////////
+model todos {
+  id        String   @id
+  text      String
+  completed Boolean
+  createdAt Int
+  userId    String
+}
+////////////////////////////////////////////////////////////////////////////////
+// Nuo User ja todos, taulut tossa yläpyolella, ne on pari alkuperäistä, 
+//          tuomolan "todo-sovelluksen mallia."  alkuopetteluun.
+//                    (kun opetellaan miten Next.js ja Prisma toimivat.)
+//      jossain vaih. voitaneen poistaa nuo taulut, kun opitaan enemmän.
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Nämä on nyt niitä YogaPlanner sovelluksen vaatimia tietokannan tauluja.
+//          (täytyy kokeilla miten onnistuu,  string ja date yms.. )
+//          (ei ole vielä lopullinen..       varmaan joutuu muokkaamaan vielä..)
+//
+// Lähinnä nyt esin Prisman opettelua ja tutustumista tässä vaiheessa.
+//      olisi pitemmän päälle paljon helpompi, jos voisi käyttää prismaa,
+//            nin ei tarviisi sitten koodissa kirjoittaa kaikkia SQl- loitsuja..
+////////////////////////////////////////////////////////////////////////////////
+model Person {
+  PersonId                 Int      @id
+  PersonName               String
+  NickName                 String
+}
+//////////////////////////////////////////////////////
+model Exercise {
+  ExerciseId               Int      @id
+  ExerciseName             String
+  Author                   String
+  DateCreated              String
+  ExerciseOtherInformation String
+  Person_PersonId          Int
+}
+//////////////////////////////////////////////////////
+model Pose {
+  PoseId                   Int      @id
+  PoseName                 String
+  PoseCreateDate           String
+  PoseOtherInformation     String
+}
+//////////////////////////////////////////////////////
+model Exercise_Posture {
+  ExercisePoseId           Int      @id
+  ExerciseId               Int
+  PoseId                   Int
+}
+//////////////////////////////////////////////////////
+model Person_Exercise {
+  PersonId                 Int      @id
+  ExcerciseId              Int
+  DateUsed                 String
+}
+//////////////////////////////////////////////////////
+model Phase{
+  PhaseId                  Int      @id
+  PhaseName                String
+}
+//////////////////////////////////////////////////////
+model Sequence {
+  SequenceId               Int      @id
+  SequenceName             String
+  SequenceDescription      String
+  PhaseId                  Int
+}
+//////////////////////////////////////////////////////
+model Image {
+  ImageId                  Int      @id
+  ImageName                String
+  ImagePath                String
+  ImageType                String
+  ImageColor               String
+  PostureId                Int
+  SequenceId               Int
+}
+//////////////////////////////////////////////////////
+model Exercise_has_Sequence {
+  Excercise_ExcerciseId    Int      @id
+  Sequence_SequenceId      Int
+}
+//////////////////////////////////////////////////////
+model Sequence_has_Pose {
+  SequenceId               Int      @id
+  PoseId                   Int
+}
+//////////////////////////////////////////////////////
+model Instruction {
+  InstructionId            Int      @id
+  InstructionTitle         String
+  InstructionText          String
+  ExcerciseId              Int
+  SequenceId               Int
+  PoseId                   Int
+}
+//////////////////////////////////////////////////////
+model PoseType {
+  PoseTypeId               Int      @id
+  PoseTypeName             String
+}
+//////////////////////////////////////////////////////
+model Pose_has_PostureType {
+  PoseId                   Int      @id
+  PoseTypeId               Int
+}
+//////////////////////////////////////////////////////
+model Excercise_has_Phase {
+  ExcerciseId              Int      @id
+  PhaseId                  Int
+}
+//////////////////////////////////////////////////////
+model Phase_has_Posture {
+  PhaseId                  Int      @id
+  PoseId                   Int
+}
+//////////////////////////////////////////////////////
+
+
+
+/// HENNAN TESTI
+model hennan_testi {
+  testiid                  Int      @id
+  testname                 String
+}
+
+//
+//  kokeiltu talla sql loitsulla, lisata tietoa tauluun;
+//  postgres=# INSERT INTO hennan_testi (testiid, testname)
+//  VALUES ('1', 'testaus_yksi');
+//  INSERT 0 1
+//  postgres=# 
+////////////////////////////////
+
+
+
+//////////////// testaus2
+model Onko_kirjaimilla_valia {
+  TestiId                  Int      @id
+  TestName                 String
+}
+
+
+
+
+
+

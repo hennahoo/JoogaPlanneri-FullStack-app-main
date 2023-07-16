@@ -1,2 +1,7 @@
-# JoogaPlanneri-FullStack-app-main
- Tehdään uusi projekti, harjoitellaan Next.js, React, Prisma ja PostgreSQL käyttöä.
+Kokeilua ja Testailua, täällä hiekkalaatikossa voi testata;
+ - Next.js  kehitystä
+ - React:n kehitystä
+ - Prisman avulla käsitellä tietokantaa.
+ - PostgreSQL palvelu on asennettu tähän virtuaalikoneeseen,
+   eli voi testata paikallisesti jo tietokantaa.
+   

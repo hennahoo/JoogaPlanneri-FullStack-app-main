@@ -1,0 +1,29 @@
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    padding: 1em;
+    max-width: fit-content;
+    margin: 0 auto;
+    background-color: #ccd5ae;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+.button:active {
+    background-color: #e9edc9;
+    transform: scale(0.95);
+}
+
+.input > input {
+    text-align: center;
+}
