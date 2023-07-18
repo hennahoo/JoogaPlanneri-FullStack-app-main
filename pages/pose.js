@@ -12,9 +12,16 @@ const Pose  = ({poses}) => {
 
     return (
       <div className="container">
-        <h1>Tämä on testi, miten voitaisiin tehdä Drag and Drop ominaisuus, React:n avulla.</h1>  
+        <h1>Tällä sivulla voit luoda oman Jooga harjoituksen</h1>  
+        <p>
+           - raahaa Asana uudelle riville                       <br></br>
+           - tulosta painamalla tulosta nappia    (työn alla)  <br></br>
+           - voit myös tallentaa harjoituksen     (työn alla)  <br></br>
+           - rivin poistaminen                    (työn alla)  <br></br>
 
-        <DragDropTesti />
+        </p>
+
+        <DragDropTesti />         {/*  kutsuu  PoseRendering.js  tiedostossa oleva  "DragDropTestiä"  */}
 
       </div>
     )
@@ -23,14 +30,14 @@ const Pose  = ({poses}) => {
   export default Pose
 
 
-  export const getServerSideProps = async (context) => {
-    const session = await getSession({ req: context.req })
+  export const getServerSideProps = async (context) => {           // async listaa tiedot satunnaiseen järjestykseen
+    const session = await getSession({ req: context.req })         //pitää tehdä kysely joka listaa tiedot id:n tai aakkosten mukaan
     if (!session) {
         return { props: { poses: [] } }
     }
-    const poses = await prisma.Pose.findMany({
-  
-    })
+    const poses = await prisma.Pose.findMany({                 //  Tietokannasta, postgresql,  pose taulusta, haetaan tiedot,  
+                                                               // ja välitetään ne PoseRendering.js   sivun renderöinti komponentille.
+    })                                                         // (Katsottu mallia, Antti Tuomolan  "todo" - esimerkistä. )
     return { props: {poses} }
   }
   

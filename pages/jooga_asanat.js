@@ -9,9 +9,14 @@ const about = () => {
     return (
       <div className="container">
         <h1>Tässä on esiteltynä Jooga-asanoita 28 kappaletta</h1>
-        <p>  - vielä ei haeta näitä tietoja tietokannasta. To be Done, tulevaisuudessa..</p>
-        <p>  - nämä Asanat on nopeasti otettu Setpose.com:n sivulta, että olisi ensihätään, jotain.</p>        
-        <p>  - https://setpose.com/poses/yoga-poses</p>
+        <p> Asana tarkoittaa joogan fyysistä harjoitusta. Jooga asanat ovat siis asentoja, joita harjoitellaan joogamatolla. 
+            Jokaisella asanalla on omat fyysiset ja henkiset hyötynsä ja perustelunsa, miksi niitä harjoitellaan. </p>
+    {/* <p>  - vielä ei hae näitä tietoja tietokannasta. To be Done, tulevaisuudessa..</p>  */}
+
+        <p>  - nämä Asanat on otettu malliksi Setpose.comista testausta varten (https://setpose.com/poses/yoga-poses) </p>        
+        <p>  - asanoita voi tulevaisuudessa hakea haku -toiminnolla, tai listataan aakkosjärjestykseen </p>
+
+        
 
 
         <div className="Taulukko">

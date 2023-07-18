@@ -35,7 +35,7 @@ const InputElement = () => {
                     onChange={(event) => setInputValue(event.target.value)} 
                     value={inputValue}
                     onKeyDown={listenForEnterKey}
-                    placeholder="Add a todo"  
+                    placeholder="Lisää uusi"  
                 />
                 <button onClick={handleSubmit} className={styles.button}>Submit</button>
             </div>

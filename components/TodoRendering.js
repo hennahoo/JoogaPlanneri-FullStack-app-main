@@ -39,21 +39,7 @@ const TodoRendering = () => {
   return (
     <div key={uuid()} className="todoRender">
 
-      {/*  JAETAAN RUUTU kahteen osaan, VASEN ja OIKEA  */}
-      <div className="row">
-
-            {/*  VASEN kolumni  */}
-            <div className="column">
-                <h1>Asanat:</h1>
-                {renderTodos}
-            </div> 
-
-            {/*  OIKEAkolumni  */}
-            <div className="column">
-                <h1>Harjoitus:</h1>
-            </div> 
-
-      </div>        
+                {renderTodos}    
     </div>
   )
 }

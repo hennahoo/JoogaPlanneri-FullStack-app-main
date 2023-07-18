@@ -16,13 +16,15 @@ const Navbar = () => {
         <div className={styles.navbar   }>
             <nav>
                 <ul className={styles.navlist}>
-                    <li><Link href="/"><a className={router.pathname === "/" ? styles.currentLocation : ""}>Koti</a></Link></li>
-                    <li><Link href="/todo"><a className={router.pathname === "/todo" ? styles.currentLocation : ""}>Joogaharjoitukset</a></Link></li>
-                    <li><Link href="/jooga_asanat"><a className={router.pathname === "/jooga_asanat" ? styles.currentLocation : ""}>Jooga asanat</a></Link></li>
-                    <li><Link href="/pose"><a className={router.pathname === "/pose" ? styles.currentLocation : ""}>DragDrop testi</a></Link></li>
+                    <li><Link href="/"><a className={router.pathname === "/" ? styles.currentLocation : ""}>YogaPlanner</a></Link></li>
+                    <li><Link href="/jooga_asanat"><a className={router.pathname === "/jooga_asanat" ? styles.currentLocation : ""}>Tietoa Joogasta</a></Link></li>
+       
+                    <li><Link href="/pose"><a className={router.pathname === "/pose" ? styles.currentLocation : ""}>Luo uusi harjoitus</a></Link></li>
+
+                    <li><Link href="/todo"><a className={router.pathname === "/todo" ? styles.currentLocation : ""}>Tallennetut harjoitukset</a></Link></li>
 
                     {session && <li><Link href="/profile"><a className={router.pathname === "/profile" ? styles.currentLocation : ""}>Käyttäjä</a></Link></li>}
-                    <li><Link href="/about"><a className={router.pathname === "/about" ? styles.currentLocation : ""}>Tietoa sivustosta</a></Link></li>
+                    {/* <li><Link href="/about"><a className={router.pathname === "/about" ? styles.currentLocation : ""}>Tietoa sivustosta</a></Link></li> */}
                     {session ?
                         <li><span className={styles.link} onClick={() => signOut({ callbackUrl: "/" })}>Kirjaudu ulos</span></li> :
                         <li><Link href="/login">

@@ -16,9 +16,16 @@ const Todo = ({todos}) => {
     return (
         <div className="container">
             <h1>Joogaharjoituksesi: </h1>
-            <InputElement />
+            <Image src="/joogi.png" width={100} height={150} />
+            <p> - vielä työn alla, tälle sivulle tulevaisuudessa haetaan kirjautuneen henkilön omat tallennetut harjoitukset</p>
+
+
             <TodoRendering />
 
+
+          {/*     Tämä taulukko oli,  ensi testausta varten, että sai edes jotain ruudulle,  
+                     tulevaisuudessa  tietysti, pitää hakea kirjautuneen henkilön omat harjoitukset tälle sivulle,
+                            jossa niitä voi katselmoida ja editoida ja tuhota  yms.
 
                                                 <div className="Taulukko">
                                                 <table>
@@ -66,6 +73,10 @@ const Todo = ({todos}) => {
                                                 </table>
                                                 </div>
 
+
+                                                 */}
+
+                <InputElement />
 
         </div>
     )
