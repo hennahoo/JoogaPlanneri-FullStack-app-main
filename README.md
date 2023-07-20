@@ -1,6 +1,7 @@
 YogaPlanner kesäprojekti 2023
 . https://yogaplannerblog.webnode.fi/
 
+https://youtu.be/Cd8BP8uMJck
 
 Kokeilua ja Testailua, täällä hiekkalaatikossa voi testata;
  - Next.js  kehitystä
